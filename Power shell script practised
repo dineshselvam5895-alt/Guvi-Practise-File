@@ -1,0 +1,163 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Windows\system32> mkdir dinesh1
+
+
+    Directory: C:\Windows\system32
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-05-2026     12:39                dinesh1
+
+
+PS C:\Windows\system32> cd dinesh
+cd : Cannot find path 'C:\Windows\system32\dinesh' because it does not exist.
+At line:1 char:1
++ cd dinesh
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Windows\system32\dinesh:String) [Set-Location], ItemNotFoundExceptio
+   n
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Windows\system32> cd dinesh1
+PS C:\Windows\system32\dinesh1> touch d1.txt
+touch : The term 'touch' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ touch d1.txt
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (touch:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32\dinesh1> ls
+PS C:\Windows\system32\dinesh1> pwd
+
+Path
+----
+C:\Windows\system32\dinesh1
+
+
+PS C:\Windows\system32\dinesh1> New-Item d1.txt
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:41              0 d1.txt
+
+
+PS C:\Windows\system32\dinesh1> ls
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:41              0 d1.txt
+
+
+PS C:\Windows\system32\dinesh1> vi d1.txt
+vi : The term 'vi' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vi d1.txt
++ ~~
+    + CategoryInfo          : ObjectNotFound: (vi:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32\dinesh1> notepad d1.txt
+PS C:\Windows\system32\dinesh1> cat d1.txt
+Hello
+PS C:\Windows\system32\dinesh1> ls
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:42              5 d1.txt
+
+
+PS C:\Windows\system32\dinesh1> new-item d2.txt
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:43              0 d2.txt
+
+
+PS C:\Windows\system32\dinesh1> ls
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:42              5 d1.txt
+-a----        02-05-2026     12:43              0 d2.txt
+
+
+PS C:\Windows\system32\dinesh1> rm d1.txt
+PS C:\Windows\system32\dinesh1> ls
+
+
+    Directory: C:\Windows\system32\dinesh1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-05-2026     12:43              0 d2.txt
+
+
+PS C:\Windows\system32\dinesh1> history
+
+  Id CommandLine
+  -- -----------
+   1 mkdir dinesh1
+   2 cd dinesh
+   3 cd dinesh1
+   4 touch d1.txt
+   5 ls
+   6 pwd
+   7 New-Item d1.txt
+   8 ls
+   9 vi d1.txt
+  10 notepad d1.txt
+  11 cat d1.txt
+  12 ls
+  13 new-item d2.txt
+  14 ls
+  15 rm d1.txt
+  16 ls
+
+
+PS C:\Windows\system32\dinesh1> Set-ExecutionPolicy Bypass -Scope Process -Force; `
+>> [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+>> iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+WARNING: 'choco' was found at 'C:\ProgramData\chocolatey\bin\choco.exe'.
+WARNING: An existing Chocolatey installation was detected. Installation will not continue. This script will not
+overwrite existing installations.
+If there is no Chocolatey installation at 'C:\ProgramData\chocolatey', delete the folder and attempt the installation
+again.
+
+Please use choco upgrade chocolatey to handle upgrades of Chocolatey itself.
+If the existing installation is not functional or a prior installation did not complete, follow these steps:
+ - Backup the files at the path listed above so you can restore your previous installation if needed.
+ - Remove the existing installation manually.
+ - Rerun this installation script.
+ - Reinstall any packages previously installed, if needed (refer to the lib folder in the backup).
+
+Once installation is completed, the backup folder is no longer needed and can be deleted.
+PS C:\Windows\system32\dinesh1> choco -v
