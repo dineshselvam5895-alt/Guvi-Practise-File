@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Script to check HTTP status code of guvi.in
+URL="https://guvi.in"
+
+echo "Checking HTTP status for: $URL"
+echo "-----------------------------------"
+
+# Fetch only the HTTP status code using curl
+HTTP_CODE=$(curl -o /dev/null -s -w "%{http_code}" "$URL")
+
+echo "HTTP Status Code: $HTTP_CODE"
+echo "-----------------------------------"
+
+# Evaluate the status code and print message
+if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+    echo "SUCCESS: The website is reachable. (2xx - OK)"
+
+elif [ "$HTTP_CODE" -ge 300 ] && [ "$HTTP_CODE" -lt 400 ]; then
+    echo "INFO: Redirection occurred. (3xx - Redirection)"
+
+elif [ "$HTTP_CODE" -ge 400 ] && [ "$HTTP_CODE" -lt 500 ]; then
+    echo "FAILURE: Client-side error. (4xx - Client Error)"
+
+elif [ "$HTTP_CODE" -ge 500 ] && [ "$HTTP_CODE" -lt 600 ]; then
+    echo "FAILURE: Server-side error. (5xx - Server Error)"
+
+elif [ "$HTTP_CODE" -eq 0 ]; then
+    echo "FAILURE: Could not connect to the server. (No response / Network error)"
+
+else
+    echo "UNKNOWN: Unexpected status code received."
+fi

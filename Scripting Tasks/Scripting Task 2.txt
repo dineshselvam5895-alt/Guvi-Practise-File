@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Script: Replace all occurrences of "give" with "learning"
+# Condition: Only from line 5 till the end, and only in lines containing "welcome"
+
+# Usage: ./replace_words.sh <filename>
+
+# --- Argument check ---
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <filename>"
+    exit 1
+fi
+
+FILE="$1"
+
+# --- File existence check ---
+if [ ! -f "$FILE" ]; then
+    echo "Error: File '$FILE' not found."
+    exit 1
+fi
+
+echo "Processing file: $FILE"
+echo "-----------------------------------"
+
+# --- sed command explanation ---
+# '5,$'        → from line 5 to end of file
+# '/welcome/'  → only on lines that contain the word "welcome"
+# 's/give/learning/g' → replace ALL occurrences of "give" with "learning"
+
+sed -i '5,$ { /welcome/ s/give/learning/g }' "$FILE"
+
+echo "Replacement complete!"
+echo "All occurrences of 'give' replaced with 'learning'"
+echo "  → From line 5 to end of file"
+echo "  → Only in lines containing the word 'welcome'"
