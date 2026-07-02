@@ -1,0 +1,49 @@
+
+Host Name:                     EC2AMAZ-BFT091M
+OS Name:                       Microsoft Windows Server 2025 Datacenter
+OS Version:                    10.0.26100 N/A Build 26100
+OS Manufacturer:               Microsoft Corporation
+OS Configuration:              Standalone Server
+OS Build Type:                 Multiprocessor Free
+Registered Owner:              EC2
+Registered Organization:       Amazon.com
+Product ID:                    00491-50000-00001-AA531
+Original Install Date:         7/1/2026, 11:28:02 PM
+System Boot Time:              7/2/2026, 7:03:07 AM
+System Manufacturer:           Amazon EC2
+System Model:                  t3.micro
+System Type:                   x64-based PC
+Processor(s):                  1 Processor(s) Installed.
+                               [01]: Intel64 Family 6 Model 85 Stepping 7 GenuineIntel ~2500 Mhz
+BIOS Version:                  Amazon EC2 1.0, 10/16/2017
+Windows Directory:             C:\Windows
+System Directory:              C:\Windows\system32
+Boot Device:                   \Device\HarddiskVolume2
+System Locale:                 en-us;English (United States)
+Input Locale:                  en-us;English (United States)
+Time Zone:                     (UTC) Coordinated Universal Time
+Total Physical Memory:         880 MB
+Available Physical Memory:     24 MB
+Virtual Memory: Max Size:      2,198 MB
+Virtual Memory: Available:     545 MB
+Virtual Memory: In Use:        1,653 MB
+Page File Location(s):         C:\pagefile.sys
+Domain:                        WORKGROUP
+Logon Server:                  \\EC2AMAZ-BFT091M
+Hotfix(s):                     3 Hotfix(s) Installed.
+                               [01]: KB5087051
+                               [02]: KB5094125
+                               [03]: KB5094137
+Network Card(s):               1 NIC(s) Installed.
+                               [01]: Amazon Elastic Network Adapter
+                                     Connection Name: Ethernet
+                                     DHCP Enabled:    Yes
+                                     DHCP Server:     172.31.0.1
+                                     IP address(es)
+                                     [01]: 172.31.1.185
+                                     [02]: fe80::a31b:93bd:d16d:d09a
+Virtualization-based security: Status: Not enabled
+                               App Control for Business policy: Enforced
+                               App Control for Business user mode policy: Off
+                               Security Features Enabled:
+Hyper-V Requirements:          A hypervisor has been detected. Features required for Hyper-V will not be displayed.
