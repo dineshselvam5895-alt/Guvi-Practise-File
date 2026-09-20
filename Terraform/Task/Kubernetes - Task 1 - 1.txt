@@ -1,0 +1,114 @@
+acerdineshselvam@Z14-55N:~$ curl -fsSL https://get.docker.com -o get-docker.sh
+acerdineshselvam@Z14-55N:~$ sudo sh get-docker.sh
+[sudo: authenticate] Password:
+# Executing docker install script, commit: 2b32480025b223ebfddae9a3a8bef09027680f53
+
+WSL DETECTED: We recommend using Docker Desktop for Windows.
+Please get Docker Desktop from https://www.docker.com/products/docker-desktop/
+
+
+You may press Ctrl+C now to abort this script.
++ sleep 20
++ sh -c apt-get -qq update >/dev/null
++ sh -c DEBIAN_FRONTEND=noninteractive apt-get -y -qq install ca-certificates curl >/dev/null
++ sh -c install -m 0755 -d /etc/apt/keyrings
++ sh -c curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
++ sh -c chmod a+r /etc/apt/keyrings/docker.asc
++ sh -c echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu resolute stable" > /etc/apt/sources.list.d/docker.list
++ sh -c apt-get -qq update >/dev/null
++ apt_flags=-y -qq
++ [ -n  ]
++ sh -c DEBIAN_FRONTEND=noninteractive apt-get -y -qq install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras docker-buildx-plugin docker-model-plugin >/dev/null
+Using systemd to manage Docker service
++ sh -c systemctl enable --now docker.service 2>/dev/null
+INFO: Docker daemon enabled and started
+
++ sh -c docker version
+Client: Docker Engine - Community
+ Version:           29.8.1
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        4a63305
+ Built:             Tue Sep 15 16:25:42 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          29.8.1
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.26.8
+  Git commit:       464cd50
+  Built:            Tue Sep 15 16:25:42 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.5
+  GitCommit:        1294c24a7da8e5a793ed378161673abe94118892
+ runc:
+  Version:          1.5.1
+  GitCommit:        v1.5.1-0-g8f2685a4
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+
+================================================================================
+
+To run Docker as a non-privileged user, consider setting up the
+Docker daemon in rootless mode for your user:
+
+    dockerd-rootless-setuptool.sh install
+
+Visit https://docs.docker.com/go/rootless/ to learn about rootless mode.
+
+
+To run the Docker daemon as a fully privileged service, but granting non-root
+users access, refer to https://docs.docker.com/go/daemon-access/
+
+WARNING: Access to the remote API on a privileged Docker daemon is equivalent
+         to root access on the host. Refer to the 'Docker daemon attack surface'
+         documentation for details: https://docs.docker.com/go/attack-surface/
+
+================================================================================
+
+acerdineshselvam@Z14-55N:~$ sudo usermod -aG docker $USER
+acerdineshselvam@Z14-55N:~$ newgrp docker
+Command 'newgrp' not found, but can be installed with:
+sudo apt install util-linux-extra
+acerdineshselvam@Z14-55N:~$ docker --version
+Docker version 29.8.1, build 4a63305
+acerdineshselvam@Z14-55N:~$ docker run hello-world
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+acerdineshselvam@Z14-55N:~$ sudo service docker status
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset>
+     Active: active (running) since Sun 2026-09-20 04:56:40 UTC; 3min 48s ago
+ Invocation: 575d081b76364d21b5e58821bc35da20
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1215 (dockerd)
+      Tasks: 11
+     Memory: 30.3M (peak: 34.8M)
+        CPU: 1.183s
+     CGroup: /system.slice/docker.service
+             └─1215 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/c>
+
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.063304898Z">
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.103408793Z">
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.115385132Z">
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.628335982Z">
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.646692061Z">
+Sep 20 04:56:39 Z14-55N dockerd[1215]: time="2026-09-20T04:56:39.647434189Z">
+Sep 20 04:56:40 Z14-55N dockerd[1215]: time="2026-09-20T04:56:40.039926713Z">
+Sep 20 04:56:40 Z14-55N dockerd[1215]: time="2026-09-20T04:56:40.063323665Z">
+Sep 20 04:56:40 Z14-55N dockerd[1215]: time="2026-09-20T04:56:40.063626210Z">
+Sep 20 04:56:40 Z14-55N systemd[1]: Started docker.service - Docker Applicat>
+acerdineshselvam@Z14-55N:~$ groups
+acerdineshselvam adm cdrom sudo dip plugdev users
+acerdineshselvam@Z14-55N:~$ cat /etc/group | grep docker
+docker:x:986:acerdineshselvam
+acerdineshselvam@Z14-55N:~$ sudo usermod -aG docker $USER
+acerdineshselvam@Z14-55N:~$ grep
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+acerdineshselvam@Z14-55N:~$

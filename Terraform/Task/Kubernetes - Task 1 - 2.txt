@@ -1,0 +1,112 @@
+acerdineshselvam@Z14-55N:~$ groups
+acerdineshselvam adm cdrom sudo dip plugdev users docker
+acerdineshselvam@Z14-55N:~$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
+Digest: sha256:5e23090353324d887c48ad5e5c56d294eab81588df9605b07d1afe895f9cc8f8
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+acerdineshselvam@Z14-55N:~$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+100 59.01M 100 59.01M   0      0  1.83M      0   00:32   00:32          3.04M
+acerdineshselvam@Z14-55N:~$ chmod +x kubectl
+acerdineshselvam@Z14-55N:~$ sudo mv kubectl /usr/local/bin/
+[sudo: authenticate] Password:
+acerdineshselvam@Z14-55N:~$ kubectl version --client
+Client Version: v1.37.0
+Kustomize Version: v5.8.1
+acerdineshselvam@Z14-55N:~$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+100 136.0M 100 136.0M   0      0 207.8k      0   11:10   11:10         832.5k
+acerdineshselvam@Z14-55N:~$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+acerdineshselvam@Z14-55N:~$ minikube version
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+acerdineshselvam@Z14-55N:~$ minikube start --driver=docker
+😄  minikube v1.39.0 on Ubuntu 26.04 (kvm/amd64)
+✨  Using the docker driver based on user configuration
+
+🧯  The requested memory allocation of 3072MiB does not leave room for system overhead (total system memory: 3785MiB). You may face stability issues.
+💡  Suggestion: Start minikube with less memory allocated: 'minikube start --memory=3072mb'
+
+📌  Using Docker driver with root privileges
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.51 ...
+💾  Downloading Kubernetes v1.37.0 preload ...
+    > preloaded-images-k8s-v18-v1...:  347.58 MiB / 347.58 MiB  100.00% 2.75 Mi
+    > gcr.io/k8s-minikube/kicbase:  507.60 MiB / 507.61 MiB  100.00% 1.21 MiB p
+🔥  Creating docker container (CPUs=2, Memory=3072MB) ...
+📦  Preparing Kubernetes v1.37.0 on containerd 2.3.4 ...
+🔗  Configuring CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+acerdineshselvam@Z14-55N:~$ minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+acerdineshselvam@Z14-55N:~$ kubectl get nodes
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   46s   v1.37.0
+acerdineshselvam@Z14-55N:~$ kubectl cluster-info
+Kubernetes control plane is running at https://127.0.0.1:32771
+CoreDNS is running at https://127.0.0.1:32771/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+acerdineshselvam@Z14-55N:~$ kubectl get namespaces
+NAME              STATUS   AGE
+default           Active   63s
+kube-node-lease   Active   63s
+kube-public       Active   63s
+kube-system       Active   63s
+acerdineshselvam@Z14-55N:~$ kubectl create namespace dev-namespace
+namespace/dev-namespace created
+acerdineshselvam@Z14-55N:~$ cat <<EOF > namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev-namespace
+EOF
+acerdineshselvam@Z14-55N:~$ kubectl apply -f namespace.yaml
+Warning: resource namespaces/dev-namespace is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by either kubectl create --save-config or kubectl apply. The missing annotation will be patched automatically.
+namespace/dev-namespace configured
+acerdineshselvam@Z14-55N:~$ kubectl describe namespace dev-namespace
+Name:         dev-namespace
+Labels:       kubernetes.io/metadata.name=dev-namespace
+Annotations:  <none>
+Status:       Active
+
+No resource quota.
+
+No LimitRange resource.
+acerdineshselvam@Z14-55N:~$ ^C
