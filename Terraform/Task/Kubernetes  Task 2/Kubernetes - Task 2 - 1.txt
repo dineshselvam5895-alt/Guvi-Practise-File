@@ -1,0 +1,443 @@
+Welcome to Ubuntu 26.04.1 LTS (GNU/Linux 6.18.33.2-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://docs.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Sun Oct  4 04:45:54 UTC 2026
+
+  System load:  1.76                Processes:             59
+  Usage of /:   0.7% of 1006.85GB   Users logged in:       0
+  Memory usage: 14%                 IPv4 address for eth0: 172.25.16.58
+  Swap usage:   0%
+
+ * Canonical Workshop gives developers fast, composable, reproducible, and
+   secure developer environments that are perfect for agentic workflows.
+
+   https://ubuntu.com/workshop
+
+This message is shown once a day. To disable it please create the
+/home/acerdineshselvam/.hushlogin file.
+acerdineshselvam@Z14-55N:~$ aws configure
+AWS Access Key ID [****************D6QW]: AKIAWKX3EJ37LQM3BLB3
+AWS Secret Access Key [****************TOle]: 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
+Default region name [ap-south-1]: ap-south-1
+Default output format [json]: json
+acerdineshselvam@Z14-55N:~$ aws sts get-caller-identity
+{
+    "UserId": "AIDAWKX3EJ37K63YPU4IH",
+    "Account": "435392106238",
+    "Arn": "arn:aws:iam::435392106238:user/dineshselvam5895"
+}
+acerdineshselvam@Z14-55N:~$ eksctl create cluster \
+  --name my-eks-cluster \
+  --region ap-south-1 \
+  --version 1.30 \
+  --nodegroup-name my-nodes \
+  --node-type t3.medium \
+  --nodes 2 \
+  --nodes-min 1 \
+  --nodes-max 3 \
+  --managed
+Error: resolving cluster version: invalid version, 1.30 is no longer supported, supported values: 1.31, 1.32, 1.33, 1.34, 1.35, 1.36, 1.37
+see also: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
+acerdineshselvam@Z14-55N:~$ eksctl create cluster \
+  --name my-eks-cluster \
+  --region ap-south-1 \
+  --version 1.31 \
+  --nodegroup-name my-nodes \
+  --node-type t3.medium \
+  --nodes 2 \
+  --nodes-min 1 \
+  --nodes-max 3 \
+  --managed
+2026-10-04 04:48:04 [ℹ]  eksctl version 0.230.0
+2026-10-04 04:48:04 [ℹ]  using region ap-south-1
+2026-10-04 04:48:04 [ℹ]  setting availability zones to [ap-south-1a ap-south-1c ap-south-1b]
+2026-10-04 04:48:04 [ℹ]  subnets for ap-south-1a - public:192.168.0.0/19 private:192.168.96.0/19
+2026-10-04 04:48:04 [ℹ]  subnets for ap-south-1c - public:192.168.32.0/19 private:192.168.128.0/19
+2026-10-04 04:48:04 [ℹ]  subnets for ap-south-1b - public:192.168.64.0/19 private:192.168.160.0/19
+2026-10-04 04:48:04 [ℹ]  nodegroup "my-nodes" will use "" [AmazonLinux2023/1.31]
+2026-10-04 04:48:04 [!]  Auto Mode will be enabled by default in an upcoming release of eksctl. This means managed node groups and managed networking add-ons will no longer be created by default. To maintain current behavior, explicitly set 'autoModeConfig.enabled: false' in your cluster configuration. Learn more: https://eksctl.io/usage/auto-mode/
+2026-10-04 04:48:04 [ℹ]  using Kubernetes version 1.31
+2026-10-04 04:48:04 [ℹ]  creating EKS cluster "my-eks-cluster" in "ap-south-1" region with managed nodes
+2026-10-04 04:48:04 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2026-10-04 04:48:04 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=ap-south-1 --cluster=my-eks-cluster'
+2026-10-04 04:48:04 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "my-eks-cluster" in "ap-south-1"
+2026-10-04 04:48:04 [ℹ]  CloudWatch logging will not be enabled for cluster "my-eks-cluster" in "ap-south-1"
+2026-10-04 04:48:04 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=ap-south-1 --cluster=my-eks-cluster'
+2026-10-04 04:48:04 [ℹ]  default addons coredns, metrics-server, vpc-cni, kube-proxy were not specified, will install them as EKS addons
+2026-10-04 04:48:04 [ℹ]
+2 sequential tasks: { create cluster control plane "my-eks-cluster",
+    2 sequential sub-tasks: {
+        2 sequential sub-tasks: {
+            1 task: { create addons },
+            wait for control plane to become ready,
+        },
+        create managed nodegroup "my-nodes",
+    }
+}
+2026-10-04 04:48:04 [ℹ]  building cluster stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 04:48:04 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2026-10-04 04:48:04 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=ap-south-1 --name=my-eks-cluster'
+2026-10-04 04:48:04 [✖]  creating CloudFormation stack "eksctl-my-eks-cluster-cluster": operation error CloudFormation: CreateStack, https response error StatusCode: 400, RequestID: 2c82e1d1-3c76-42a4-887a-8055c8e0294d, AlreadyExistsException: Stack [eksctl-my-eks-cluster-cluster] already exists
+Error: failed to create cluster "my-eks-cluster"
+acerdineshselvam@Z14-55N:~$ kubectl get nodes
+E1004 04:48:27.598917     879 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 04:48:27.599409     879 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 04:48:27.601449     879 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 04:48:27.601924     879 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 04:48:27.603653     879 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+The connection to the server 127.0.0.1:32771 was refused - did you specify the right host or port?
+acerdineshselvam@Z14-55N:~$ eksctl delete cluster --region ap-south-1 --name my-eks-cluster
+Error: unable to describe cluster control plane: operation error EKS: DescribeCluster, https response error StatusCode: 404, RequestID: 99aa78f9-65c4-489a-9bfb-f19cc7c38898, ResourceNotFoundException: No cluster found for name: my-eks-cluster.
+acerdineshselvam@Z14-55N:~$ aws cloudformation list-stacks --region ap-south-1 --stack-status-filter CREATE_FAILED ROLLBACK_COMPLETE
+
+aws: [ERROR]: Connect timeout on endpoint URL: "https://cloudformation.ap-south-1.amazonaws.com/"
+acerdineshselvam@Z14-55N:~$ eksctl create cluster \
+  --name my-eks-cluster \
+  --region ap-south-1 \
+  --version 1.31 \
+  --nodegroup-name my-nodes \
+  --node-type t3.medium \
+  --nodes 2 \
+  --nodes-min 1 \
+  --nodes-max 3 \
+  --managed
+2026-10-04 05:01:31 [ℹ]  eksctl version 0.230.0
+2026-10-04 05:01:31 [ℹ]  using region ap-south-1
+2026-10-04 05:01:32 [ℹ]  setting availability zones to [ap-south-1c ap-south-1b ap-south-1a]
+2026-10-04 05:01:32 [ℹ]  subnets for ap-south-1c - public:192.168.0.0/19 private:192.168.96.0/19
+2026-10-04 05:01:32 [ℹ]  subnets for ap-south-1b - public:192.168.32.0/19 private:192.168.128.0/19
+2026-10-04 05:01:32 [ℹ]  subnets for ap-south-1a - public:192.168.64.0/19 private:192.168.160.0/19
+2026-10-04 05:01:32 [ℹ]  nodegroup "my-nodes" will use "" [AmazonLinux2023/1.31]
+2026-10-04 05:01:32 [!]  Auto Mode will be enabled by default in an upcoming release of eksctl. This means managed node groups and managed networking add-ons will no longer be created by default. To maintain current behavior, explicitly set 'autoModeConfig.enabled: false' in your cluster configuration. Learn more: https://eksctl.io/usage/auto-mode/
+2026-10-04 05:01:32 [ℹ]  using Kubernetes version 1.31
+2026-10-04 05:01:32 [ℹ]  creating EKS cluster "my-eks-cluster" in "ap-south-1" region with managed nodes
+2026-10-04 05:01:32 [ℹ]  will create 2 separate CloudFormation stacks for cluster itself and the initial managed nodegroup
+2026-10-04 05:01:32 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=ap-south-1 --cluster=my-eks-cluster'
+2026-10-04 05:01:32 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "my-eks-cluster" in "ap-south-1"
+2026-10-04 05:01:32 [ℹ]  CloudWatch logging will not be enabled for cluster "my-eks-cluster" in "ap-south-1"
+2026-10-04 05:01:32 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=ap-south-1 --cluster=my-eks-cluster'
+2026-10-04 05:01:32 [ℹ]  default addons metrics-server, vpc-cni, kube-proxy, coredns were not specified, will install them as EKS addons
+2026-10-04 05:01:32 [ℹ]
+2 sequential tasks: { create cluster control plane "my-eks-cluster",
+    2 sequential sub-tasks: {
+        2 sequential sub-tasks: {
+            1 task: { create addons },
+            wait for control plane to become ready,
+        },
+        create managed nodegroup "my-nodes",
+    }
+}
+2026-10-04 05:01:32 [ℹ]  building cluster stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:01:32 [ℹ]  deploying stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:02:02 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:02:33 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:03:33 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:04:33 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:05:34 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:06:35 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:07:35 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:08:36 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:09:36 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-cluster"
+2026-10-04 05:09:39 [!]  recommended policies were found for "vpc-cni" addon, but since OIDC is disabled on the cluster, eksctl cannot configure the requested permissions; the recommended way to provide IAM permissions for "vpc-cni" addon is via pod identity associations; after addon creation is completed, add all recommended policies to the config file, under `addon.PodIdentityAssociations`, and run `eksctl update addon`
+2026-10-04 05:09:39 [ℹ]  creating addon: vpc-cni
+2026-10-04 05:09:50 [ℹ]  successfully created addon: vpc-cni
+2026-10-04 05:09:50 [ℹ]  creating addon: kube-proxy
+2026-10-04 05:09:51 [ℹ]  successfully created addon: kube-proxy
+2026-10-04 05:09:51 [ℹ]  creating addon: coredns
+2026-10-04 05:09:52 [ℹ]  successfully created addon: coredns
+2026-10-04 05:11:56 [ℹ]  building managed nodegroup stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:11:57 [ℹ]  deploying stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:11:57 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:12:28 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:13:28 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:15:02 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:15:34 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:16:25 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:17:07 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:17:52 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:19:39 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:20:48 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:22:40 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:23:40 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:24:51 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:25:48 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:27:38 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:29:14 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:30:38 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:32:28 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:34:25 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:35:28 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:36:30 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:36:30 [!]  1 error(s) occurred and cluster hasn't been created properly, you may wish to check CloudFormation console
+2026-10-04 05:36:30 [ℹ]  to cleanup resources, run 'eksctl delete cluster --region=ap-south-1 --name=my-eks-cluster'
+2026-10-04 05:36:30 [✖]  exceeded max wait time for StackCreateComplete waiter
+Error: failed to create cluster "my-eks-cluster"
+acerdineshselvam@Z14-55N:~$ aws cloudformation describe-stacks \
+  --region ap-south-1 \
+  --stack-name eksctl-my-eks-cluster-nodegroup-my-nodes \
+  --query "Stacks[0].StackStatus"
+"CREATE_IN_PROGRESS"
+acerdineshselvam@Z14-55N:~$ eksctl delete nodegroup \
+  --cluster my-eks-cluster \
+  --name my-nodes \
+  --region ap-south-1
+2026-10-04 05:49:40 [ℹ]  1 nodegroup (my-nodes) was included (based on the include/exclude rules)
+2026-10-04 05:49:40 [ℹ]  will drain 1 nodegroup(s) in cluster "my-eks-cluster"
+2026-10-04 05:49:40 [ℹ]  starting parallel draining, max in-flight of 1
+2026-10-04 05:49:44 [!]  no nodes found in nodegroup "my-nodes" (label selector: "alpha.eksctl.io/nodegroup-name=my-nodes")
+2026-10-04 05:49:44 [ℹ]  will delete 1 nodegroups from cluster "my-eks-cluster"
+2026-10-04 05:49:45 [ℹ]  1 task: { 1 task: { delete nodegroup "my-nodes" [async] } }
+2026-10-04 05:49:46 [ℹ]  will delete stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:49:46 [✔]  deleted 1 nodegroup(s) from cluster "my-eks-cluster"
+acerdineshselvam@Z14-55N:~$ aws ec2 describe-instance-types \
+  --region ap-south-1 \
+  --filters Name=free-tier-eligible,Values=true \
+  --query "InstanceTypes[].InstanceType" \
+  --output table
+-----------------------
+|DescribeInstanceTypes|
++---------------------+
+|  t8i.micro          |
+|  c7i-flex.large     |
+|  t3.micro           |
+|  t4g.small          |
+|  t4g.micro          |
+|  t3.small           |
+|  m7i-flex.large     |
+|  t8i.small          |
++---------------------+
+acerdineshselvam@Z14-55N:~$ eksctl create nodegroup \
+  --cluster my-eks-cluster \
+  --region ap-south-1 \
+  --name my-nodes \
+  --node-type t3.small \
+  --nodes 2 \
+  --nodes-min 1 \
+  --nodes-max 3 \
+  --managed
+2026-10-04 05:50:56 [ℹ]  will use version 1.31 for new nodegroup(s) based on control plane version
+2026-10-04 05:51:02 [ℹ]  nodegroup "my-nodes" will use "" [AmazonLinux2023/1.31]
+2026-10-04 05:51:04 [ℹ]  1 nodegroup (my-nodes) was included (based on the include/exclude rules)
+2026-10-04 05:51:04 [ℹ]  will create a CloudFormation stack for each of 1 managed nodegroups in cluster "my-eks-cluster"
+2026-10-04 05:51:04 [ℹ]
+2 sequential tasks: { fix cluster compatibility, 1 task: { 1 task: { create managed nodegroup "my-nodes" } }
+}
+2026-10-04 05:51:04 [ℹ]  checking cluster stack for missing resources
+2026-10-04 05:51:05 [ℹ]  cluster stack has all required resources
+2026-10-04 05:51:05 [ℹ]  building managed nodegroup stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:51:06 [ℹ]  deploying stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:51:06 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:51:37 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:52:14 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:53:55 [ℹ]  waiting for CloudFormation stack "eksctl-my-eks-cluster-nodegroup-my-nodes"
+2026-10-04 05:53:56 [ℹ]  no tasks
+2026-10-04 05:53:56 [✔]  created 0 nodegroup(s) in cluster "my-eks-cluster"
+2026-10-04 05:53:57 [ℹ]  nodegroup "my-nodes" has 2 node(s)
+2026-10-04 05:53:57 [ℹ]  node "ip-192-168-6-231.ap-south-1.compute.internal" is ready
+2026-10-04 05:53:57 [ℹ]  node "ip-192-168-64-220.ap-south-1.compute.internal" is ready
+2026-10-04 05:53:57 [ℹ]  waiting for at least 1 node(s) to become ready in "my-nodes"
+2026-10-04 05:53:57 [ℹ]  nodegroup "my-nodes" has 2 node(s)
+2026-10-04 05:53:57 [ℹ]  node "ip-192-168-6-231.ap-south-1.compute.internal" is ready
+2026-10-04 05:53:57 [ℹ]  node "ip-192-168-64-220.ap-south-1.compute.internal" is ready
+2026-10-04 05:53:57 [✔]  created 1 managed nodegroup(s) in cluster "my-eks-cluster"
+2026-10-04 05:53:58 [ℹ]  checking security group configuration for all nodegroups
+2026-10-04 05:53:58 [ℹ]  all nodegroups have up-to-date cloudformation templates
+acerdineshselvam@Z14-55N:~$ kubectl get nodess
+E1004 05:54:23.064078    1408 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:23.065207    1408 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:23.065771    1408 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:23.067711    1408 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:23.068781    1408 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+The connection to the server 127.0.0.1:32771 was refused - did you specify the right host or port?
+acerdineshselvam@Z14-55N:~$ kubectl get nodes
+E1004 05:54:25.455337    1425 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:25.455955    1425 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:25.457858    1425 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:25.458943    1425 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+E1004 05:54:25.459688    1425 memcache.go:381] "Couldn't get current server API group list" err="Get \"https://127.0.0.1:32771/api?timeout=32s\": dial tcp 127.0.0.1:32771: connect: connection refused"
+The connection to the server 127.0.0.1:32771 was refused - did you specify the right host or port?
+acerdineshselvam@Z14-55N:~$ aws eks update-kubeconfig --region ap-south-1 --name my-eks-cluster
+Added new context arn:aws:eks:ap-south-1:435392106238:cluster/my-eks-cluster to /home/acerdineshselvam/.kube/config
+acerdineshselvam@Z14-55N:~$ kubectl get nodes
+NAME                                            STATUS   ROLES    AGE     VERSION
+ip-192-168-6-231.ap-south-1.compute.internal    Ready    <none>   2m40s   v1.31.14-eks-3b4a6ca
+ip-192-168-64-220.ap-south-1.compute.internal   Ready    <none>   2m42s   v1.31.14-eks-3b4a6ca
+acerdineshselvam@Z14-55N:~$ kubectl config use-context arn:aws:eks:ap-south-1:435392106238:cluster/my-eks-cluster
+Switched to context "arn:aws:eks:ap-south-1:435392106238:cluster/my-eks-cluster".
+acerdineshselvam@Z14-55N:~$ kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   48m
+acerdineshselvam@Z14-55N:~$ apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+apiVersion:: command not found
+Command 'kind:' not found, did you mean:
+  command 'kind' from deb kind (0.30.0-1)
+Try: sudo apt install <deb name>
+metadata:: command not found
+Command 'name:' not found, did you mean:
+  command 'named' from deb bind9 (1:9.20.18-1ubuntu2.1)
+  command 'namei' from deb util-linux (2.41.3-3ubuntu2)
+  command 'names' from deb names (0.14.0-1)
+Try: sudo apt install <deb name>
+labels:: command not found
+app:: command not found
+spec:: command not found
+replicas:: command not found
+selector:: command not found
+matchLabels:: command not found
+app:: command not found
+template:: command not found
+metadata:: command not found
+labels:: command not found
+app:: command not found
+spec:: command not found
+containers:: command not found
+-: command not found
+Command 'image:' not found, did you mean:
+  command 'imagen' from deb hevea (2.36-2build3)
+  command 'imagej' from deb imagej (1.54g-1build1)
+Try: sudo apt install <deb name>
+ports:: command not found
+-: command not found
+acerdineshselvam@Z14-55N:~$ kubectl apply -f nginx-deployment.yaml
+error: the path "nginx-deployment.yaml" does not exist
+acerdineshselvam@Z14-55N:~$ kubectl apply -f nginx-deployment.yamL
+error: the path "nginx-deployment.yamL" does not exist
+acerdineshselvam@Z14-55N:~$ cat > nginx-deployment.yaml << 'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+EOF
+acerdineshselvam@Z14-55N:~$ cat nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+acerdineshselvam@Z14-55N:~$ kubectl apply -f nginx-deployment.yaml
+deployment.apps/nginx-deployment created
+acerdineshselvam@Z14-55N:~$ kubectl get deployments
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   1/2     2            1           7s
+acerdineshselvam@Z14-55N:~$ kubectl get pods -o wide
+NAME                                READY   STATUS    RESTARTS   AGE   IP               NODE                                            NOMINATED NODE   READINESS GATES
+nginx-deployment-54b9c68f67-fwdzf   1/1     Running   0          13s   192.168.26.31    ip-192-168-6-231.ap-south-1.compute.internal    <none>           <none>
+nginx-deployment-54b9c68f67-lxmvc   1/1     Running   0          13s   192.168.80.113   ip-192-168-64-220.ap-south-1.compute.internal   <none>           <none>
+acerdineshselvam@Z14-55N:~$ cat > nginx-service.yaml << 'EOF'
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+EOF
+
+kubectl apply -f nginx-service.yaml
+kubectl get svc nginx-service
+service/nginx-service created
+NAME            TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+nginx-service   LoadBalancer   10.100.100.187   <pending>     80:31356/TCP   1s
+acerdineshselvam@Z14-55N:~$ kubectl get svc nginx-service
+NAME            TYPE           CLUSTER-IP       EXTERNAL-IP                                                                PORT(S)        AGE
+nginx-service   LoadBalancer   10.100.100.187   a960cc9fa708c41f69b69736eac0ff9c-1514944294.ap-south-1.elb.amazonaws.com   80:31356/TCP   9s
+acerdineshselvam@Z14-55N:~$ curl http://<EXTERNAL-IP>
+-bash: syntax error near unexpected token `newline'
+acerdineshselvam@Z14-55N:~$ kubectl get svc nginx-service -o wide
+NAME            TYPE           CLUSTER-IP       EXTERNAL-IP                                                                PORT(S)        AGE    SELECTOR
+nginx-service   LoadBalancer   10.100.100.187   a960cc9fa708c41f69b69736eac0ff9c-1514944294.ap-south-1.elb.amazonaws.com   80:31356/TCP   101s   app=nginx
+acerdineshselvam@Z14-55N:~$ ^C
+acerdineshselvam@Z14-55N:~$ ^C
+acerdineshselvam@Z14-55N:~$ curl http://<a960cc9fa708c41f69b69736eac0ff9c-1514944294.ap-south-1.elb.amazonaws.com>
+-bash: syntax error near unexpected token `newline'
+acerdineshselvam@Z14-55N:~$ curl a960cc9fa708c41f69b69736eac0ff9c-1514944294.ap-south-1.elb.amazonaws.com
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy,
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+acerdineshselvam@Z14-55N:~$ ^C
+acerdineshselvam@Z14-55N:~$
