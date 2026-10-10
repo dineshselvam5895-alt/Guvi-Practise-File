@@ -1,0 +1,175 @@
+Return-Path: <dineshselvam5895@gmail.com>
+Received: from ip-172-31-3-191.ap-south-1.compute.internal (ec2-13-232-129-39.ap-south-1.compute.amazonaws.com. [13.232.129.39])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3537ca1b556sm15316957eec.9.2026.10.09.23.05.14
+        for <dineshselvam5895@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Oct 2026 23:05:15 -0700 (PDT)
+Date: Sat, 10 Oct 2026 06:05:12 +0000 (UTC)
+From: dineshselvam5895@gmail.com
+To: dineshselvam5895@gmail.com
+Message-ID: <1199967025.9.1791612314975@ip-172-31-3-191.ap-south-1.compute.internal>
+Subject: github-demo-job - Build # 4 - Successful!
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_8_1241207313.1791612312785"
+X-Jenkins-Job: github-demo-job
+X-Jenkins-Result: SUCCESS
+List-ID: 
+
+------=_Part_8_1241207313.1791612312785
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Job: github-demo-job
+     Build Number: 4
+     Status: Successful
+     URL: http://13.232.129.39:8080/job/github-demo-job/4/
+
+     Console Output:
+     Started by GitHub push by dineshselvam5895-alt
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/github-demo-job
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/github-demo-job/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/dineshselvam5895-alt/jenkins-demo.git # timeout=10
+Fetching upstream changes from https://github.com/dineshselvam5895-alt/jenkins-demo.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.53.0'
+ > git fetch --tags --force --progress -- https://github.com/dineshselvam5895-alt/jenkins-demo.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5190db0a3c057af26b51784d11803dd8c4d5be80 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5190db0a3c057af26b51784d11803dd8c4d5be80 # timeout=10
+Commit message: "Test webhook trigger"
+ > git rev-list --no-walk 079f0ebc7976a341836654a7e4650f7f2395cf2d # timeout=10
+Checking for pre-build
+Executing pre-build step
+Checking if email needs to be generated
+No emails were triggered.
+[github-demo-job] $ /bin/sh -xe /tmp/jenkins5739652990645836809.sh
++ chmod +x hello.sh
++ ./hello.sh
+==============================
+Hello from Jenkins build!
+Build date: Sat Oct 10 06:05:12 UTC 2026
+Running on host: ip-172-31-3-191
+==============================
+Second commit test
+Checking for post-build
+Performing post-build step
+Checking if email needs to be generated
+Email was triggered for: Always
+Sending email for trigger: Always
+Sending mail from default account using System Admin e-mail address
+------=_Part_8_1241207313.1791612312785
+Content-Type: text/plain; charset=us-ascii; name=build.log
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=build.log
+
+Started by GitHub push by dineshselvam5895-alt
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/github-demo-job
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/github-demo-job/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/dineshselvam5895-alt/jenkins-demo.git # timeout=10
+Fetching upstream changes from https://github.com/dineshselvam5895-alt/jenkins-demo.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.53.0'
+ > git fetch --tags --force --progress -- https://github.com/dineshselvam5895-alt/jenkins-demo.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5190db0a3c057af26b51784d11803dd8c4d5be80 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5190db0a3c057af26b51784d11803dd8c4d5be80 # timeout=10
+Commit message: "Test webhook trigger"
+ > git rev-list --no-walk 079f0ebc7976a341836654a7e4650f7f2395cf2d # timeout=10
+Checking for pre-build
+Executing pre-build step
+Checking if email needs to be generated
+No emails were triggered.
+[github-demo-job] $ /bin/sh -xe /tmp/jenkins5739652990645836809.sh
++ chmod +x hello.sh
++ ./hello.sh
+==============================
+Hello from Jenkins build!
+Build date: Sat Oct 10 06:05:12 UTC 2026
+Running on host: ip-172-31-3-191
+==============================
+Second commit test
+Checking for post-build
+Performing post-build step
+Checking if email needs to be generated
+Email was triggered for: Always
+Sending email for trigger: Always
+Sending mail from default account using System Admin e-mail address
+messageContentType = text/plain; charset=UTF-8
+Request made to attach build log
+  Collecting change authors...
+    build: 4
+      adding author: dineshselvam5895
+Not sending mail to unregistered user (id: dineshselvam5895, email: dineshselvam5895@gmail.com) because your SCM claimed this was associated with a user ID 'dineshselvam5895' which your security realm does not recognize; you may need changes in your SCM plugin
+Adding recipients from project recipient list
+Analyzing: dineshselvam5895@gmail.com
+Looking for: dineshselvam5895@gmail.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: dineshselvam5895@gmail.com
+	=> found type: 0
+Analyzing: dineshselvam5895@gmail.com
+Looking for: dineshselvam5895@gmail.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: dineshselvam5895@gmail.com
+	=> found type: 0
+Analyzing: dineshselvam5895@gmail.com
+Looking for: dineshselvam5895@gmail.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: dineshselvam5895@gmail.com
+	=> found type: 0
+Adding recipients from trigger recipient list
+Successfully created MimeMessage
+Sending email to: dineshselvam5895@gmail.com
+DEBUG: getProvider() returning jakarta.mail.Provider[TRANSPORT,smtp,org.eclipse.angus.mail.smtp.SMTPTransport,Oracle]
+DEBUG SMTP: need username and password for authentication
+DEBUG SMTP: protocolConnect returning false, host=smtp.gmail.com, user=jenkins, password=<null>
+DEBUG SMTP: useEhlo true, useAuth true
+DEBUG SMTP: trying to connect to host "smtp.gmail.com", port 465, isSSL false
+220 smtp.gmail.com ESMTP 5a478bee46e88-3537ca1b556sm15316957eec.9 - gsmtp
+DEBUG SMTP: connected to host "smtp.gmail.com", port: 465
+EHLO ip-172-31-3-191.ap-south-1.compute.internal
+250-smtp.gmail.com at your service, [13.232.129.39]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+DEBUG SMTP: Found extension "SIZE", arg "35882577"
+DEBUG SMTP: Found extension "8BITMIME", arg ""
+DEBUG SMTP: Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
+DEBUG SMTP: Found extension "PIPELINING", arg ""
+DEBUG SMTP: Found extension "CHUNKING", arg ""
+DEBUG SMTP: Found extension "SMTPUTF8", arg ""
+DEBUG SMTP: protocolConnect login, host=smtp.gmail.com, user=dineshselvam5895@gmail.com, password=<non-null>
+DEBUG SMTP: Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+DEBUG SMTP: Using mechanism LOGIN
+DEBUG SMTP: AUTH LOGIN command trace suppressed
+DEBUG SMTP: AUTH LOGIN succeeded
+DEBUG SMTP: use8bit false
+MAIL FROM:<dineshselvam5895@gmail.com>
+250 2.1.0 OK 5a478bee46e88-3537ca1b556sm15316957eec.9 - gsmtp
+DEBUG SMTP: sendPartial set
+RCPT TO:<dineshselvam5895@gmail.com>
+250 2.1.5 OK 5a478bee46e88-3537ca1b556sm15316957eec.9 - gsmtp
+DEBUG SMTP: Verified Addresses
+DEBUG SMTP:   dineshselvam5895@gmail.com
+DATA
+354 Go ahead 5a478bee46e88-3537ca1b556sm15316957eec.9 - gsmtp
+
+------=_Part_8_1241207313.1791612312785--
